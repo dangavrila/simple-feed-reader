@@ -39,8 +39,9 @@ jobs:
   deploy_staging:
     needs: build
     runs-on: ubuntu-latest
-    environment: PRE-PROD
-    url: ${{ steps.deploywebapp.outputs.webapp-url }}
+    environment:
+      name: PRE-PROD
+      url: ${{ steps.deploywebapp.outputs.webapp-url }}
     steps:
     - name: Download Build artifact
       uses: actions/download-artifact@v2.0.8
